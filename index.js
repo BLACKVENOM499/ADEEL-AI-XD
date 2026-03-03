@@ -45,16 +45,16 @@ async function downloadAndExtractFromMega(megaUrl) {
         .on('error', reject);
     });
 
-    // Extract ZIP and find SHABAN-MD
+    // Extract ZIP and find MAFIA-MD
     const zip = new AdmZip(zipPath);
     const zipEntries = zip.getEntries();
     
-    // Look for SHABAN-MD folder (case-insensitive)
+    // Look for MAFIA-MD folder (case-insensitive)
     const mafiaEntry = zipEntries.find(entry => 
       entry.entryName.toLowerCase().includes('mafia-md') && entry.isDirectory
     );
 
-    if (!shabanEntry) {
+    if (!mafiaEntry) {
       throw new Error('MAFIA-MD folder not found in ZIP');
     }
 
@@ -69,11 +69,11 @@ async function downloadAndExtractFromMega(megaUrl) {
       folder.toLowerCase().includes('mafia-md')
     );
 
-    if (!shabanFolder) {
+    if (!mafiaFolder) {
       throw new Error('MAFIA-MD folder not found after extraction');
     }
 
-    // Rename to SHABAN-MD if needed
+    // Rename to MAFIA-MD if needed
     const extractedPath = path.join(repoFolder, mafiaFolder);
     if (extractedPath !== targetFolder) {
       if (fs.existsSync(targetFolder)) {
@@ -94,7 +94,7 @@ async function downloadAndExtractFromMega(megaUrl) {
   const megaUrl = await getMegaLink();
   await downloadAndExtractFromMega(megaUrl);
 
-  // Verify SHABAN-MD folder
+  // Verify MAFIA-MD folder
   if (!fs.existsSync(targetFolder)) {
     console.error('❌ MAFIA-MD folder not found after extraction');
     process.exit(1);
