@@ -27,7 +27,7 @@ ___
 <h1 align="center"> ᘜᗴT ᑭᗩIᖇ </h1>
 
 <p align="center">
-  <a href="https://adeelxmdpro-b671922027a0.herokuapp.com/">
+  <a href="https://adeelultrapair-12542c80ba62.herokuapp.com/">
     <img src="./Adeel/get-session-btn.svg" alt="GET SESSION" width="260"/>
   </a>
 </p>
